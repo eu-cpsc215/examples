@@ -28,8 +28,6 @@ MACROS / CONSTANTS
 TYPES
 =============================================================================*/
 
-struct UiTile;
-
 struct BoardColumn
 {
     char pad[0x10];
@@ -42,12 +40,6 @@ struct BoardMineData
     BoardColumn** columns;
 };
 
-struct UiColumn
-{
-    char pad[0x10];
-    UiTile** tiles;
-};
-
 struct Board
 {
     void* vtable;               // 0x00
@@ -55,19 +47,11 @@ struct Board
     BoardMineData* mineData;    // 0x58
 };
 
-struct UiBoardCanvas
-{
-    char pad[0x18];
-    Board* board;               // 0x18
-};
-
 struct UiTile
 {
     char pad[0x30];
     int col;                    // 0x30
     int row;                    // 0x34
-    char pad_0x38[0x10];        // 0x38
-    UiBoardCanvas* boardCanvas; // 0X48
 };
 
 struct UiEvent
