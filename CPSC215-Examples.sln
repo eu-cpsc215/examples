@@ -1,7 +1,7 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio Version 17
-VisualStudioVersion = 17.1.32210.238
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.32228.343
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c4-basic-instructions", "c4-basic-instructions\c4-basic-instructions.vcxproj", "{AFBA4325-7ACC-46D4-989A-CCC475E51CA9}"
 EndProject
@@ -20,6 +20,8 @@ EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c8-float", "c8-float\c8-float.vcxproj", "{91071118-95F1-4519-9DB5-1C655D17F5BD}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c1-intro", "c1-intro\c1-intro.vcxproj", "{C083D3A2-017E-4094-B48D-99C4F93AB407}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2-endianness", "c2-endianness\c2-endianness.vcxproj", "{F914A3FB-1BA3-4314-980F-D0C4FDC85166}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Debug|x64.Build.0 = Debug|x64
 		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Release|x64.ActiveCfg = Release|x64
 		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Release|x64.Build.0 = Release|x64
+		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Debug|x64.ActiveCfg = Debug|x64
+		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Debug|x64.Build.0 = Debug|x64
+		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Release|x64.ActiveCfg = Release|x64
+		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
