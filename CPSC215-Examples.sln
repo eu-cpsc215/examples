@@ -19,11 +19,13 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c7-structs-masm", "c7-struc
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c8-float", "c8-float\c8-float.vcxproj", "{91071118-95F1-4519-9DB5-1C655D17F5BD}"
 EndProject
-Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c1-intro", "c1-intro\c1-intro.vcxproj", "{C083D3A2-017E-4094-B48D-99C4F93AB407}"
-EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c2-endianness", "c2-endianness\c2-endianness.vcxproj", "{F914A3FB-1BA3-4314-980F-D0C4FDC85166}"
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c3-basics", "c3-basics\c3-basics.vcxproj", "{A974EF12-9FA5-44D3-8F88-088F72F5E298}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c1-pipeline", "c1-pipeline\c1-pipeline.vcxproj", "{C083D3A2-017E-4094-B48D-99C4F93AB407}"
+EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c1-pipeline-lib", "c1-pipeline-lib\c1-pipeline-lib.vcxproj", "{514CE02C-FC30-4985-B9D3-0B1411286A9C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,10 +65,6 @@ Global
 		{91071118-95F1-4519-9DB5-1C655D17F5BD}.Debug|x64.Build.0 = Debug|x64
 		{91071118-95F1-4519-9DB5-1C655D17F5BD}.Release|x64.ActiveCfg = Release|x64
 		{91071118-95F1-4519-9DB5-1C655D17F5BD}.Release|x64.Build.0 = Release|x64
-		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Debug|x64.ActiveCfg = Debug|x64
-		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Debug|x64.Build.0 = Debug|x64
-		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Release|x64.ActiveCfg = Release|x64
-		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Release|x64.Build.0 = Release|x64
 		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Debug|x64.ActiveCfg = Debug|x64
 		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Debug|x64.Build.0 = Debug|x64
 		{F914A3FB-1BA3-4314-980F-D0C4FDC85166}.Release|x64.ActiveCfg = Release|x64
@@ -75,6 +73,14 @@ Global
 		{A974EF12-9FA5-44D3-8F88-088F72F5E298}.Debug|x64.Build.0 = Debug|x64
 		{A974EF12-9FA5-44D3-8F88-088F72F5E298}.Release|x64.ActiveCfg = Release|x64
 		{A974EF12-9FA5-44D3-8F88-088F72F5E298}.Release|x64.Build.0 = Release|x64
+		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Debug|x64.ActiveCfg = Debug|x64
+		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Debug|x64.Build.0 = Debug|x64
+		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Release|x64.ActiveCfg = Release|x64
+		{C083D3A2-017E-4094-B48D-99C4F93AB407}.Release|x64.Build.0 = Release|x64
+		{514CE02C-FC30-4985-B9D3-0B1411286A9C}.Debug|x64.ActiveCfg = Debug|x64
+		{514CE02C-FC30-4985-B9D3-0B1411286A9C}.Debug|x64.Build.0 = Debug|x64
+		{514CE02C-FC30-4985-B9D3-0B1411286A9C}.Release|x64.ActiveCfg = Release|x64
+		{514CE02C-FC30-4985-B9D3-0B1411286A9C}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
