@@ -11,7 +11,7 @@ sum QWORD ?
 
 _main PROC
 
-sub rax, 28h
+sub rsp, 28h
 
 mov rax, num
 add rax, 20
