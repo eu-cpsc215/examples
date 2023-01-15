@@ -16,7 +16,7 @@ The steps and example code are adapted from Appendix B in the [textbook](https:/
 	* Some projects use `Console (/SUBSYSTEM:CONSOLE)` to provide a console output window.
 1. In the project Properties dialog, navigate to `Linker` → `Advanced` and in the `Entry Point` box type `_main`. ([example](screenshots/entry-point.png))
 1. Copy and paste the code from [appendix-b-sample.asm](appendix-b-sample.asm) into the assembly source file created earlier.
-	* There is a bug in the sample provided by the textbook that can result in a program crash on some machines. The sample code provided in the repo ([appendix-b-sample.asm](appendix-b-sample.asm)) includes a fix for this.
+	* There is a bug in the sample provided by the textbook that can result in a program crash on some machines. The sample code provided in this repo ([appendix-b-sample.asm](appendix-b-sample.asm)) includes a fix for this.
 1. Set a breakpoint at a suitable location (e.g., `mov rax, num`). ([example](screenshots/set-breakpoint.png))
 1. Build and debug the program.
 1. When the program halts at the breakpoint, arrange the window frames to your preference. The following windows are recommend and can be opened using the `Debug` → `Windows` menu. ([example](screenshots/debug-windows-menu.png))
