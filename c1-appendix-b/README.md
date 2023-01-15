@@ -10,7 +10,7 @@ The steps and example code are adapted from Appendix B in the [textbook](https:/
 1. Check the `masm` box.
 1. In the Solution Explorer, right-click `Source Files` then select `Add` → `New item...`.
 1. Under `Visual C++` click `Utility` then choose `Text File`. When you name the file also type the .asm extension. ([example](screenshots/create-asm-file.png))
-1. In the Solution Explorer, right-click on the newly created .asm file, select `Properties`, and under `Configuration Properties` → `General` change `Item Type` to `Microsoft Macro Assembler` if not already set (should be set by default).
+1. In the Solution Explorer, right-click on the newly created .asm file, select `Properties`, and under `Configuration Properties` → `General` change `Item Type` to `Microsoft Macro Assembler` if not already set (should be set by default). ([example](screenshots/item-type.png))
 1. In the Solution Explorer, right-click on the project, select `Properties` and within the Properties you should see a drop-down menu called `Microsoft Macro Assembler`. If the menu is missing, return to Step 2. If the menu exists, continue to Step 9.
 1. In the Tool Bar, below the Menu Bar, you will see a drop-down box with the selected solution configuration and platform. Ensure that the `Debug` configuration and `x64` platform are selected. ([example](screenshots/selected-configuration-and-platform.png))
 1. In the project Properties dialog, navigate to `Linker` → `System` and in the `SubSystem` drop-down box select `Windows (/SUBSYSTEM:WINDOWS)`. ([example](screenshots/subsystem-selection.png))
