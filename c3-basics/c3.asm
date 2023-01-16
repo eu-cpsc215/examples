@@ -25,8 +25,8 @@ extrn ExitProcess : proc
 
 	wordArray WORD 12h, 32h, 1Fh       ; Array of WORDs
 	charArray BYTE "Hello, world!",0   ; Array of ASCII characters with a null-terminator at the end
-	initArray QWORD 10 (1)             ; Array of 10 QWORDs, each initialized to a value of 1
-	uninitArray QWORD 10 (1)           ; Array of 10 QWORDs, each uninitialized
+	initArray QWORD 10 DUP (1)         ; Array of 10 QWORDs, each initialized to a value of 1
+	uninitArray QWORD 10 DUP (?)       ; Array of 10 QWORDs, each uninitialized
 
 	multiLineString BYTE "This is split up",0Dh,0Ah
 		BYTE "into multiple lines.",0
