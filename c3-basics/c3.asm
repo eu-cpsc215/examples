@@ -16,20 +16,22 @@ extrn ExitProcess : proc
 ; uninitialized are defined in this section.
 .DATA
 
-	initByte BYTE 2                    ; 8-bit unsigned integer
-	uninitByte BYTE ?                  ; 8-bit unsigned integer, uninitialized
-	signedByte SBYTE -0Ah              ; 8-bit signed integer
-	initWord WORD 54F2h                ; 16-bit unsigned integer
-	initDword DWORD 4312A2C1h          ; 32-bit unsigned integer
-	initQword QWORD 98714128C5D1A8C2h  ; 64-bit unsigned integer
+    initByte BYTE 2                    ; 8-bit unsigned integer
+    uninitByte BYTE ?                  ; 8-bit unsigned integer, uninitialized
+    signedByte SBYTE -0Ah              ; 8-bit signed integer
+    initWord WORD 54F2h                ; 16-bit unsigned integer
+    initDword DWORD 4312A2C1h          ; 32-bit unsigned integer
+    initQword QWORD 98714128C5D1A8C2h  ; 64-bit unsigned integer
 
-	wordArray WORD 12h, 32h, 1Fh       ; Array of WORDs
-	charArray BYTE "Hello, world!",0   ; Array of ASCII characters with a null-terminator at the end
-	initArray QWORD 10 DUP (1)         ; Array of 10 QWORDs, each initialized to a value of 1
-	uninitArray QWORD 10 DUP (?)       ; Array of 10 QWORDs, each uninitialized
+    wordArray WORD 12h, 32h, 1Fh       ; Array of WORDs
+    charArray BYTE "Hello, world!",0   ; Array of ASCII characters with a null-terminator at the end
+    initArray QWORD 10 DUP (1)         ; Array of 10 QWORDs, each initialized to a value of 1
+    uninitArray QWORD 10 DUP (?)       ; Array of 10 QWORDs, each uninitialized
 
-	multiLineString BYTE "This is split up",0Dh,0Ah
-		BYTE "into multiple lines.",0
+    multiLineString BYTE "This is split up",0Dh,0Ah
+        BYTE "into multiple lines.",0
+
+    CONST_VALUE = 12        ; Constant value (not in memory)
 
 ; Code segment - defines beginning of code segment. Functions and instructions
 ; are defined in this section.
@@ -47,6 +49,8 @@ _main PROC              ; Begin function - main entry point
 ; be used to jump program execution to this point. Labels are not instructions and they
 ; themselves do not get encoded into the program binary output.
 myLabel:
+
+    mov rax, CONST_VALUE
 
     xor rcx, rcx
     call ExitProcess    ; Calls the ExitProcess function that is declared at the top of the file.
