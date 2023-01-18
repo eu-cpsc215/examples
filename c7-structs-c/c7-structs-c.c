@@ -20,7 +20,7 @@ void main()
 	quarterback.height = 74;
 	quarterback.weight = 225;
 
-	MessageBoxA(NULL, quarterback.name, "Player Name", NULL);
+	MessageBoxA(NULL, quarterback.name, "Player Name", 0);
 
 	// Array of players
 	struct Player offensivePlayers[11];
@@ -32,5 +32,5 @@ void main()
 	offensivePlayers[0].weight = 230;
 
 	struct Player* p = &offensivePlayers[0];
-	MessageBoxA(NULL, p->name, "Player Name", NULL);
+	MessageBoxA(NULL, p->name, "Player Name", 0);
 }
