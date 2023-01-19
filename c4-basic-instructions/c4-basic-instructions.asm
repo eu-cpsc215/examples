@@ -26,6 +26,22 @@ mov rbx, var2		; Memory to register (value of var2 copied into RBX)
 ;mov var1, var2		; INVALID: Memory to memory
 ;mov rax, ax		; INVALID: Operands must be the same size
 
+; Observe the behavior of different register sizes
+mov rax, 1234567899876543h
+mov eax, 11111111h	; Bits 32-63 cleared
+
+mov rax, 1234567899876543h
+mov eax, -12		; Bits 32-63 cleared
+
+mov rax, 1234567899876543h
+mov ax, 1111h		; No existing bits are cleared
+
+mov rax, 1234567899876543h
+mov ah, 11h			; No existing bits are cleared
+
+mov rax, 1234567899876543h
+mov al, 11h			; No existing bits are cleared
+
 ;----------------------------------------------------------
 ; XCHG
 ;----------------------------------------------------------
