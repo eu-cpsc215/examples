@@ -71,6 +71,12 @@ mov var1, 0
 inc var1
 dec var1
 
+mov ax, 0FFFFh
+inc ax            ; Wrap around to 0
+
+mov ax, 0
+dec ax            ; Wrap around to FFFF
+
 ;----------------------------------------------------------
 ; ADD/SUB
 ;----------------------------------------------------------
