@@ -127,15 +127,15 @@ sub al, 1       ; 00000001 - 00000001 = 00000000 (0)      No borrow from 9th bit
 sub al, 1       ; 00000000 - 00000001 = 11111111 (255)    Borrow from 9th bit, so CF = 1.
 
 ; Overflow flag (indicates signed wrap-around)
-; - OF = 1 if the sign bit (most significant bit) changes. Otherwise, OF = 0.
+; - OF = 1 if result wraps around the signed boundary
 
 mov al, 126     ; Remember: The signed range of 1 byte is [-128, 127].
-add al, 1       ; 01111110 + 00000001 = 01111111 (127)     Most significant bit did not change, so OF = 0.
-add al, 1       ; 01111111 + 00000001 = 10000000 (-128)    Most significant bit changed (sign flipped), so OF = 1.
+add al, 1       ; 01111110 + 00000001 = 01111111 (127)     Still within signed range, so OF = 0.
+add al, 1       ; 01111111 + 00000001 = 10000000 (-128)    Wrapped around signed range, so OF = 1.
 
 mov al, -127    ; Remember: The signed range of 1 byte is [-128, 127].
-sub al, 1       ; 10000001 - 00000001 = 10000000 (-128)    Most significant bit did not change, so OF = 0.
-sub al, 1       ; 10000000 - 00000001 = 01111111 (127)     Most significant bit changed (sign flipped), so OF = 1.
+sub al, 1       ; 10000001 - 00000001 = 10000000 (-128)    Still within signed range, so OF = 0.
+sub al, 1       ; 10000000 - 00000001 = 01111111 (127)     Wrapped around signed range, so OF = 1.
 
 ;----------------------------------------------------------
 ; NEG
