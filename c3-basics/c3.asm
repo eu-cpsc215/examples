@@ -12,8 +12,8 @@ lines.
 ; the linking step for us automatically (kernel32.lib is one of them).
 extrn ExitProcess : proc
 
-; Data segment - defines beginning of data segment. Both initialized and
-; uninitialized are defined in this section.
+; Data segment - this directive tells the assembler to enter the data segment.
+; Both initialized and uninitialized are defined in this section.
 .DATA
 
     initByte BYTE 2                    ; 8-bit unsigned integer
@@ -33,8 +33,8 @@ extrn ExitProcess : proc
 
     CONST_VALUE = 12        ; Constant value (not in memory)
 
-; Code segment - defines beginning of code segment. Functions and instructions
-; are defined in this section.
+; Code segment - this directive tells the assembler to enter the code segment.
+; Functions and instructions are defined in this section.
 .CODE
 
 ; This is a function definition.
