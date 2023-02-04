@@ -97,6 +97,47 @@ add [var1], rbx     ; Add register and memory (result in memory)
 sub rax, 2          ; (RAX - 2), store result in RAX
 
 ;----------------------------------------------------------
+; Flags
+;----------------------------------------------------------
+
+xor rax, rax    ; Clear rax register
+
+; Zero flag (indicates if result is zero)
+
+add al, 1       ; 0 + 1 = 1, so ZF = 0.
+add al, -1      ; 1 + (-1) = 0, so ZF = 1.
+
+; Sign flag (indicates if result is negative)
+
+mov al, 1
+sub al, 1       ; 1 - 1 = 0. Not negative, so SF = 0.
+sub al, 1       ; 0 - 1 = -1. Negative, so SF = 1.
+
+; Carry flag (indicates unsigned wrap-around)
+; - CF = 1 if carry out of most significant bit.
+; - CF = 1 if borrow into most significant bit.
+; - Otherwise, CF = 0.
+
+mov al, 254     ; Initialize AL (1 byte) with value 11111110 (254).
+add al, 1       ; 11111110 + 00000001 = 11111111 (255)    No carry out  bit, so CF = 0
+add al, 1       ; 11111111 + 00000001 = 00000000 (0)      Carry into 9th bit, so CF = 1.
+
+mov al, 1       ; Initialize AL (1 byte) with value 00000001 (1).
+sub al, 1       ; 00000001 - 00000001 = 00000000 (0)      No borrow from 9th bit, so CF = 0.
+sub al, 1       ; 00000000 - 00000001 = 11111111 (255)    Borrow from 9th bit, so CF = 1.
+
+; Overflow flag (indicates signed wrap-around)
+; - OF = 1 if the sign bit (most significant bit) changes. Otherwise, OF = 0.
+
+mov al, 126     ; Remember: The signed range of 1 byte is [-128, 127].
+add al, 1       ; 01111110 + 00000001 = 01111111 (127)     Most significant bit did not change, so OF = 0.
+add al, 1       ; 01111111 + 00000001 = 10000000 (-128)    Most significant bit changed (sign flipped), so OF = 1.
+
+mov al, -127    ; Remember: The signed range of 1 byte is [-128, 127].
+sub al, 1       ; 10000001 - 00000001 = 10000000 (-128)    Most significant bit did not change, so OF = 0.
+sub al, 1       ; 10000000 - 00000001 = 01111111 (127)     Most significant bit changed (sign flipped), so OF = 1.
+
+;----------------------------------------------------------
 ; NEG
 ;----------------------------------------------------------
 
