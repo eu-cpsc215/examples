@@ -17,30 +17,31 @@ _main PROC
 ; MOV
 ;----------------------------------------------------------
 
-mov rbx, 3			; Literal to register (value 3 copied into RBX)
-mov var1, 2			; Literal to memory (value 2 copied into var1)
-mov rax, rbx		; Register to register (RBX copied into RAX)
-mov var1, rbx		; Register to memory (RBX copied into var1)
-mov rbx, var2		; Memory to register (value of var2 copied into RBX)
+mov rbx, 3          ; Literal to register (value 3 copied into RBX)
+mov [var1], 2       ; Literal to memory (value 2 copied into var1)
+mov rax, rbx        ; Register to register (RBX copied into RAX)
+mov [var1], rbx     ; Register to memory (RBX copied into var1)
+mov rbx, [var2]     ; Memory to register (value of var2 copied into RBX)
 
-;mov var1, var2		; INVALID: Memory to memory
-;mov rax, ax		; INVALID: Operands must be the same size
+;mov [var1], [var2] ; INVALID: Memory to memory
+;mov rax, ax        ; INVALID: Operands must be the same size
 
 ; Observe the behavior of different register sizes
-mov rax, 1234567899876543h
-mov eax, 11111111h	; Bits 32-63 cleared
 
 mov rax, 1234567899876543h
-mov eax, -12		; Bits 32-63 cleared
+mov eax, 11111111h  ; Bits 32-63 cleared
 
 mov rax, 1234567899876543h
-mov ax, 1111h		; No existing bits are cleared
+mov eax, -12        ; Bits 32-63 cleared (zero extended, not sign extended)
 
 mov rax, 1234567899876543h
-mov ah, 11h			; No existing bits are cleared
+mov ax, 1111h       ; No existing bits are cleared
 
 mov rax, 1234567899876543h
-mov al, 11h			; No existing bits are cleared
+mov ah, 11h         ; No existing bits are cleared
+
+mov rax, 1234567899876543h
+mov al, 11h         ; No existing bits are cleared
 
 ;----------------------------------------------------------
 ; XCHG
@@ -48,14 +49,14 @@ mov al, 11h			; No existing bits are cleared
 
 mov rax, 1
 mov rbx, 2
-mov var1, 3
-mov var2, 4
+mov [var1], 3
+mov [var2], 4
 
-xchg rax, rbx		; Register to register
-xchg var1, rax		; Register to memory
-xchg rbx, var2		; Memory to register
+xchg rax, rbx       ; Register to register
+xchg [var1], rax    ; Register to memory
+xchg rbx, [var2]    ; Memory to register
 
-;xchg var1, var2	; INVALID: Memory to memory
+;xchg [var1], [var2]    ; INVALID: Memory to memory
 
 ;----------------------------------------------------------
 ; INC/DEC
@@ -67,9 +68,9 @@ inc rax
 dec rax
 dec rax
 
-mov var1, 0
-inc var1
-dec var1
+mov [var1], 0
+inc [var1]
+dec [var1]
 
 mov ax, 0FFFFh
 inc ax            ; Wrap around to 0
@@ -83,17 +84,17 @@ dec ax            ; Wrap around to FFFF
 
 mov rax, 5
 mov rbx, 2
-mov var1, 5
+mov [var1], 5
 
-add rax, 10			; Add literal and register (result in register)
-add var1, 10		; Add literal and memory (result in memory)
-add rax, rbx		; Add register and register
-add var1, rbx		; Add register and memory (result in memory)
+add rax, 10         ; Add literal and register (result in register)
+add [var1], 10      ; Add literal and memory (result in memory)
+add rax, rbx        ; Add register and register
+add [var1], rbx     ; Add register and memory (result in memory)
 
-;add var1, var2		; INVALID: Both operands can't be memory
-;add 2, rax			; INVALID: Can't store result in a literal
+;add [var1], [var2] ; INVALID: Both operands can't be memory
+;add 2, rax         ; INVALID: Can't store result in a literal
 
-sub rax, 2			; (RAX - 2), store result in RAX
+sub rax, 2          ; (RAX - 2), store result in RAX
 
 ;----------------------------------------------------------
 ; NEG
@@ -117,10 +118,10 @@ mov rbx, 2
 mul rbx
 
 mov rax, 98765432100
-mov var1, 987654321
-mul var1
+mov [var1], 987654321
+mul [var1]
 
-;mul 2			; INVALID: Can't use immediate operand (literal)
+;mul 2          ; INVALID: Can't use immediate operand (literal)
 
 ;----------------------------------------------------------
 ; IMUL
@@ -135,30 +136,30 @@ mov rbx, -2
 imul rbx
 
 mov rax, -10
-mov var1, 2
-imul var1
+mov [var1], 2
+imul [var1]
 
 ; Two-operand (destination, source)
 ; -------------------------------------
 mov var1, 2
 mov rax, 2
-imul rax, -2		; immediate * register
-imul rax, rax		; register * register
-imul rax, var1		; memory * register
+imul rax, -2        ; immediate * register
+imul rax, rax       ; register * register
+imul rax, [var1]    ; memory * register
 
-;imul var1, rax		; INVALID: memory can't be destination
-;imul 2, rax		; INVALID: immediate can't be destination
+;imul [var1], rax   ; INVALID: memory can't be destination
+;imul 2, rax        ; INVALID: immediate can't be destination
 
 ; Three-operand (destination, source, immediate)
 ; -------------------------------------
-mov var1, 2
+mov [var1], 2
 mov rax, 2
-imul rbx, rax, -2	; register source
-imul rbx, var1, -2	; memory source
+imul rbx, rax, -2       ; register source
+imul rbx, [var1], -2    ; memory source
 
-;imul var1, rbx, 2		; INVALID: memory can't be destination
-;imul rbx, rax, rcx		; INVALID: last operand must be immediate
-;imul rbx, rax, var1	; INVALID: last operand must be immediate
+;imul [var1], rbx, 2    ; INVALID: memory can't be destination
+;imul rbx, rax, rcx     ; INVALID: last operand must be immediate
+;imul rbx, rax, [var1]  ; INVALID: last operand must be immediate
 
 ;----------------------------------------------------------
 ; DIV
@@ -172,14 +173,14 @@ imul rbx, var1, -2	; memory source
 mov rdx, 0
 mov rax, 11
 mov rcx, 2
-div rcx		; Use register as divisor, rax will contain quotient, rdx remainder
+div rcx     ; Use register as divisor, rax will contain quotient, rdx remainder
 
 mov rdx, 412
 mov rax, 9876543
-mov var1, 1234
-div var1
+mov [var1], 1234
+div [var1]
 
-;div 2		; INVALID: can't use immediate
+;div 2      ; INVALID: can't use immediate
 
 ; This example will cause integer overflow
 ;mov rdx, 4124123
@@ -213,21 +214,21 @@ idiv rcx
 ; New bits filled with 0
 
 mov rax, 1
-shl rax, 1		; 1 * (2^1) = 1 * 2 = 2
-shl rax, 1		; 2 * (2^1) = 2 * 2 = 4
-shl rax, 2		; 4 * (2^2) = 4 * 4 = 16
-shr rax, 1		; 16 / (2^1) = 16 / 2 = 8
-shr rax, 3		; 8 / (2^3) = 8 / 8 = 1
+shl rax, 1      ; 1 * (2^1) = 1 * 2 = 2
+shl rax, 1      ; 2 * (2^1) = 2 * 2 = 4
+shl rax, 2      ; 4 * (2^2) = 4 * 4 = 16
+shr rax, 1      ; 16 / (2^1) = 16 / 2 = 8
+shr rax, 3      ; 8 / (2^3) = 8 / 8 = 1
 
 ;shr rax, rax	; INVALID: last operand must be immediate value
 
 ; Observe carry flag as bits are shifted out of the bounds of the register BX (16-bit)
 mov rbx, 0
 mov bx, 1010101010101010b
-shl bx, 1		; Carry flag will be 1
-shl bx, 1		; Carry flag will be 0
-shl bx, 1		; Carry flag will be 1
-shl bx, 1		; Carry flag will be 0
+shl bx, 1       ; Carry flag will be 1
+shl bx, 1       ; Carry flag will be 0
+shl bx, 1       ; Carry flag will be 1
+shl bx, 1       ; Carry flag will be 0
 
 ;----------------------------------------------------------
 ; SAL/SAR
@@ -239,11 +240,11 @@ shl bx, 1		; Carry flag will be 0
 ; Note that SAL and SHL are identical
 
 mov rax, -1
-sal rax, 1		; -1 * (2^1) = -1 * 2 = -2
-sal rax, 3		; -2 * (2^3) = -2 * 8 = -16
-sar rax, 1		; -16 / (2^1) = -16 / 2 = -8
-sar rax, 2		; -8 / (2^2) = -8 / 4 = -2
-sar rax, -1		; -2 / (2^1) = -2 / 2 = -1 (sign is ignored on the last operand)
+sal rax, 1      ; -1 * (2^1) = -1 * 2 = -2
+sal rax, 3      ; -2 * (2^3) = -2 * 8 = -16
+sar rax, 1      ; -16 / (2^1) = -16 / 2 = -8
+sar rax, 2      ; -8 / (2^2) = -8 / 4 = -2
+sar rax, -1     ; -2 / (2^1) = -2 / 2 = -1 (sign is ignored on the last operand)
 
 ;----------------------------------------------------------
 ; CBW/CWD/CDQ/CQO
