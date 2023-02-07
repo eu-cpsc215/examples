@@ -17,7 +17,7 @@ You can examine the memory contents created by the data definition directives in
 ![](screenshot-disassembly.png)
 
 - Copy the address.
-- Open the memory debug window. From the top menu, choose `Debug` -> `Windows` -> `Memory` -> `Memory `.
+- Open the memory debug window. From the top menu, choose `Debug` -> `Windows` -> `Memory` -> `Memory 1`.
 - Paste the address of the variable `initByte` into the address bar and press enter.
 
 ![](screenshot-memory-debug.png)
