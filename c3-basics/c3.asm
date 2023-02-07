@@ -51,6 +51,7 @@ _main PROC              ; Begin function - main entry point
 myLabel:
 
     mov rax, CONST_VALUE
+    mov al, [initByte]
 
     xor rcx, rcx
     call ExitProcess    ; Calls the ExitProcess function that is declared at the top of the file.
