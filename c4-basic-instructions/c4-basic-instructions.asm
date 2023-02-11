@@ -202,6 +202,24 @@ imul rbx, [var1], -2    ; memory source
 ;imul rbx, rax, rcx     ; INVALID: last operand must be immediate
 ;imul rbx, rax, [var1]  ; INVALID: last operand must be immediate
 
+; Compare MUL (unsigned) to IMUL (signed)
+; -------------------------------------
+xor rax, rax
+xor rbx, rbx
+xor rdx, rdx
+
+mov al, 2
+mov bl, -2
+mul bl         ; 2 * -2 = 2 * 254 = 508 = 0000 0001 : 1111 1100
+
+mov al, 2
+mov bl, -2
+imul bl        ; 2 * -2 =            -4 = 1111 1111 : 1111 1100
+
+mov al, 2
+mov bl, 254
+imul bl        ; 2 * -2 =            -4 = 1111 1111 : 1111 1100
+
 ;----------------------------------------------------------
 ; DIV
 ;----------------------------------------------------------
@@ -285,7 +303,6 @@ sal rax, 1      ; -1 * (2^1) = -1 * 2 = -2
 sal rax, 3      ; -2 * (2^3) = -2 * 8 = -16
 sar rax, 1      ; -16 / (2^1) = -16 / 2 = -8
 sar rax, 2      ; -8 / (2^2) = -8 / 4 = -2
-sar rax, -1     ; -2 / (2^1) = -2 / 2 = -1 (sign is ignored on the last operand)
 
 ;----------------------------------------------------------
 ; CBW/CWD/CDQ/CQO
