@@ -1,3 +1,5 @@
+#include <stdint.h>
+
 // Declare function defined in the assembly module
 void _program();
 
@@ -18,6 +20,12 @@ void main()
 	// Create another pointer and assigns the value of myPtr (the address of myVar)
 	int* yourPtr = myPtr;
 	yourVar = *yourPtr;
+
+	// Array example
+	uint8_t onOffList[6];
+	onOffList[0] = 1;
+	onOffList[1] = 0;
+	*(onOffList + 3) = 3;
 
 	_program();
 }
