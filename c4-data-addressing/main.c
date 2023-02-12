@@ -6,13 +6,18 @@ void main()
 {
 	// Review of pointers:
 
-	int variable = 2;
-	int* pointerToVariable = &variable;
+	int myVar = 4;
+	int* myPtr = &myVar;   // Stores the address of myVar in myPtr
 
-	// "De-referencing" a pointer to get the value being pointed to
-	int valueOfVariable = *pointerToVariable; 
+	// Use the indirection operator * to dereference a pointer and get the value being pointed to
+	int yourVar = *myPtr;
 
-	// At the end of the day, data has to be stored in memory.
+	// Use the indirection operator to update the value being pointed to
+	*myPtr = 2;
+
+	// Create another pointer and assigns the value of myPtr (the address of myVar)
+	int* yourPtr = myPtr;
+	yourVar = *yourPtr;
 
 	_program();
 }
