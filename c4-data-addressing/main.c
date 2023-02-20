@@ -25,7 +25,7 @@ void main()
 	uint8_t onOffList[6];
 	onOffList[0] = 1;
 	onOffList[1] = 0;
-	*(onOffList + 3) = 3;
+	*(onOffList + 3) = 1;
 
 	_program();
 }
