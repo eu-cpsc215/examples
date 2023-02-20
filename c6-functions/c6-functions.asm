@@ -142,8 +142,8 @@ asmFunctionExample3Helper ENDP
 AsmFunctionExample4 PROC
 
     push rbp                ; Callee-saved register
-    sub rsp, 20h            ; Allocate shadow space for any function calls
     mov rbp, rsp            ; Establish frame pointer
+    sub rsp, 20h            ; Allocate shadow space for any function calls
     ; -------------------- /\ PROLOGUE /\ --------------------
 
     mov rax, rcx
