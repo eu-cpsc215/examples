@@ -202,6 +202,41 @@ static void booleanBitwise()
 
 static void branching()
 {
+	// Basic if statement.
+	int i = 0;
+	if (i == 0)
+	{
+		i = 1;
+	}
+
+	// Example of if/else if constructs.
+	if (i == 0)
+	{
+		i = 2;
+	}
+	else if (i == 1)
+	{
+		i = 3;
+	}
+	else if (i == 3)
+	{
+		i = 4;
+	}
+
+	// C also has an unconditional jump: the "goto"
+	int hello = 10;
+	hello++;
+	goto skipIt;
+	hello = 20; // This will be skipped
+
+skipIt:
+	hello++;
+	assert(hello == 12);
+
+	/*
+	Let's jump into some assembly code.
+	----------------------------------------------------------
+	*/
 	AsmBranching();
 }
 
