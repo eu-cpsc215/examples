@@ -140,6 +140,8 @@ mov rcx, 8	; RCX is the counter (8 times)
 mov rax, 60h
 mov rdi, OFFSET destArray
 
+rep stosq
+
 ;----------------------------------------------------------
 ; REPE/REPZ
 ;----------------------------------------------------------
