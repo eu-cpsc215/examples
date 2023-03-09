@@ -29,6 +29,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c1-pipeline-lib", "c1-pipel
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "c1-signed-ints", "c1-signed-ints\c1-signed-ints.vcxproj", "{DCA7315D-AA58-45A9-997B-25166E0388F9}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "re-example-1", "re-example-1\re-example-1.vcxproj", "{9C830E68-DCEF-485D-889C-22623D6C32D8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -87,6 +89,10 @@ Global
 		{DCA7315D-AA58-45A9-997B-25166E0388F9}.Debug|x64.Build.0 = Debug|x64
 		{DCA7315D-AA58-45A9-997B-25166E0388F9}.Release|x64.ActiveCfg = Release|x64
 		{DCA7315D-AA58-45A9-997B-25166E0388F9}.Release|x64.Build.0 = Release|x64
+		{9C830E68-DCEF-485D-889C-22623D6C32D8}.Debug|x64.ActiveCfg = Debug|x64
+		{9C830E68-DCEF-485D-889C-22623D6C32D8}.Debug|x64.Build.0 = Debug|x64
+		{9C830E68-DCEF-485D-889C-22623D6C32D8}.Release|x64.ActiveCfg = Release|x64
+		{9C830E68-DCEF-485D-889C-22623D6C32D8}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
