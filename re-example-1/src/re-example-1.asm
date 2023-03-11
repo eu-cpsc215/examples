@@ -37,7 +37,7 @@ _main PROC                      ; Directive: Begin function labeled `_main`
 
     cmp [filePath + 2], 5Ch   ; backslash
     jne youLose
-    
+
     ; First character must be 'C' or 'c'
     ; ------------------------------------------------------------------
     mov dl, [filePath + 0]
